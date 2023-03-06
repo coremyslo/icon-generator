@@ -11,7 +11,7 @@ export interface Options {
 export class IconGenerator {
     public sourceDirPath = "";
 
-    public options: Options = {
+    public readonly options: Options = {
         case: "kebab",
         optimize: true,
     };
@@ -26,7 +26,7 @@ export class IconGenerator {
         this.options = { ...this.options, ...options };
     }
 
-    public async sync (sourcePath = this.sourceDirPath): Promise<void> {
+    public async read (sourcePath = this.sourceDirPath): Promise<void> {
         if (sourcePath) {
             if (!path.isAbsolute(sourcePath)) {
                 throw new Error("Only absolute path is allowed");
@@ -49,9 +49,6 @@ export class IconGenerator {
         } else {
             throw new Error(`No icons found by path ${sourcePath}`);
         }
-    }
-
-    public async build (): Promise<void> {
         await Promise.all([...this.icons].map(async ([name, icon]) => {
             try {
                 if (!icon.content) {

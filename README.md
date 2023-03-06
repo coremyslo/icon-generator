@@ -12,17 +12,18 @@ $ yarn add @coremyslo/icon-generator
 ## Usage
 ```typescript
 import { IconGenerator } from "@coremyslo/svg-to-icon";
+
 // adds all icons from the directory to internal `iconGenerator.icons` but doesn't read them
 const iconGenerator = new IconGenerator(path.join(__dirname, "/assets"));
-// reads and optimizes all icons added
-await iconGenerator.build();
 
-// refreshes only icons in a specific subdirectory
-await iconGenerator.sync(path.join(__dirname, "/assets/icons"));
-// same but for a file
-await iconGenerator.sync(path.join(__dirname, "/assets/icons/icon-home.svg"));
-// reads and optimizes only refreshed icons
-await iconGenerator.build();
+// reads and optimizes all icons from directory specified in constructor
+await iconGenerator.read();
+
+// reads and optimizes only icons in a specific subdirectory
+await iconGenerator.read(path.join(__dirname, "/assets/icons"));
+
+// reads and optimizes only the icon for a specific file.
+await iconGenerator.read(path.join(__dirname, "/assets/icons/icon-home.svg"));
 
 // returns a list of icons as a Map
 console.log(iconGenerator.icons)
@@ -35,11 +36,8 @@ console.log(iconGenerator.icons)
   * `case: "snake" | "pascal" | "camel" | "kebab" | "header" | "constant"` - Optional, `kebab` by default. Defines the case for icon name. See [case](https://www.npmjs.com/package/case) package for details.
   * `optimize: boolean;` - Optional, `true` by default. Defines whether the icons should be optimized after reading or not.
 
-### `sync(sourcePath = this.sourceDirPath): Promise<void>`
-Asynchronous. Creates and adds an icon object to `icons` and sets the name, but doesn't read the file(s).
-
-### `build(): Promise<void>`
-Asynchronous. Reads and optimizes all SVG files in directory passed in the constructor.
+### `read(sourcePath = this.sourceDirPath): Promise<void>`
+Asynchronous. Reads and optimizes all SVG files in directory passed in the constructor or subdirectory of file passed as an argument.
 
 ### `icons: Map<string, Icon>`
 Returns a Map of icons, where the key is a name based on the icon path, and the value is [Icon](https://github.com/coremyslo/svg-to-icon) object.
