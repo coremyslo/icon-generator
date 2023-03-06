@@ -30,7 +30,7 @@ class IconGenerator {
         this.sourceDirPath = sourceDirPath;
         this.options = Object.assign(Object.assign({}, this.options), options);
     }
-    sync(sourcePath = this.sourceDirPath) {
+    read(sourcePath = this.sourceDirPath) {
         return __awaiter(this, void 0, void 0, function* () {
             if (sourcePath) {
                 if (!node_path_1.default.isAbsolute(sourcePath)) {
@@ -55,10 +55,6 @@ class IconGenerator {
             else {
                 throw new Error(`No icons found by path ${sourcePath}`);
             }
-        });
-    }
-    build() {
-        return __awaiter(this, void 0, void 0, function* () {
             yield Promise.all([...this.icons].map(([name, icon]) => __awaiter(this, void 0, void 0, function* () {
                 try {
                     if (!icon.content) {

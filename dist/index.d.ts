@@ -6,9 +6,8 @@ export interface Options {
 }
 export declare class IconGenerator {
     sourceDirPath: string;
-    options: Options;
+    readonly options: Options;
     icons: Map<string, Icon>;
     constructor(sourceDirPath: string, options?: Partial<Options>);
-    sync(sourcePath?: string): Promise<void>;
-    build(): Promise<void>;
+    read(sourcePath?: string): Promise<void>;
 }
