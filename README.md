@@ -40,5 +40,4 @@ console.log(iconGenerator.icons)
 Asynchronous. Reads and optimizes all SVG files in directory passed in the constructor or subdirectory of file passed as an argument.
 
 ### `icons: Map<string, Icon>`
-Returns a Map of icons, where the key is a name based on the icon path, and the value is [Icon](https://github.com/coremyslo/svg-to-icon) object.
-* `options: object` options passed to node's [Readable.from](https://nodejs.org/api/stream.html#streamreadablefromiterable-options) under the hood. This method is used to generate a glyph from the SVG icon.
+Returns a Map of icons, where the key is a name based on the icon path, and the value is [Icon](https://www.npmjs.com/package/@coremyslo/svg-to-icon) class.
