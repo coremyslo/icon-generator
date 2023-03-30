@@ -1,6 +1,6 @@
 {
     "name": "@coremyslo/icon-generator",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "main": "dist/index.js",
     "types": "dist/index.d.js",
     "repository": {
@@ -20,8 +20,8 @@
     "scripts": {
         "build": "tsc -p tsconfig-build.json",
         "lint": "eslint --fix --ext .ts .",
-        "dev": "yarn lint && yarn build && yarn icon-font",
-        "test": "jest"
+        "test": "jest",
+        "dev": "yarn lint && yarn build && yarn test"
     },
     "dependencies": {
         "fast-glob": "^3.2.12",
