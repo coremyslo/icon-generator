@@ -19,10 +19,7 @@ const fast_glob_1 = __importDefault(require("fast-glob"));
 class IconGenerator {
     constructor(sourceDirPath, options = {}) {
         this.sourceDirPath = "";
-        this.options = {
-            case: "kebab",
-            optimize: true,
-        };
+        this.options = IconGenerator.optionsDefault;
         this.icons = new Map();
         if (!node_path_1.default.isAbsolute(sourceDirPath)) {
             throw new Error("Only absolute path is allowed");
@@ -72,3 +69,7 @@ class IconGenerator {
     }
 }
 exports.IconGenerator = IconGenerator;
+IconGenerator.optionsDefault = {
+    case: "kebab",
+    optimize: true,
+};

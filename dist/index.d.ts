@@ -5,6 +5,7 @@ export interface Options {
     optimize: boolean;
 }
 export declare class IconGenerator {
+    static readonly optionsDefault: Options;
     sourceDirPath: string;
     readonly options: Options;
     icons: Map<string, Icon>;

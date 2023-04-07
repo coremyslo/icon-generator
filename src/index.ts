@@ -9,12 +9,14 @@ export interface Options {
 }
 
 export class IconGenerator {
-    public sourceDirPath = "";
-
-    public readonly options: Options = {
+    public static readonly optionsDefault: Options = {
         case: "kebab",
         optimize: true,
     };
+
+    public sourceDirPath = "";
+
+    public readonly options: Options = IconGenerator.optionsDefault;
 
     public icons = new Map<string, Icon>();
 
