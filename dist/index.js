@@ -67,6 +67,15 @@ class IconGenerator {
             })));
         });
     }
+    delete(nameOrPath) {
+        if (this.icons.has(nameOrPath)) {
+            this.icons.delete(nameOrPath);
+        }
+        else {
+            const icon = new svg_to_icon_1.Icon(nameOrPath);
+            this.icons.delete(icon.name);
+        }
+    }
 }
 exports.IconGenerator = IconGenerator;
 IconGenerator.optionsDefault = {

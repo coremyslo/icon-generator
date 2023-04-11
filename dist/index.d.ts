@@ -11,4 +11,5 @@ export declare class IconGenerator {
     icons: Map<string, Icon>;
     constructor(sourceDirPath: string, options?: Partial<Options>);
     read(sourcePath?: string): Promise<void>;
+    delete(nameOrPath: string): void;
 }

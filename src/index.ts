@@ -64,4 +64,13 @@ export class IconGenerator {
             }
         }));
     }
+
+    public delete (nameOrPath: string): void {
+        if (this.icons.has(nameOrPath)) {
+            this.icons.delete(nameOrPath);
+        } else {
+            const icon = new Icon(nameOrPath);
+            this.icons.delete(icon.name);
+        }
+    }
 }
