@@ -67,6 +67,20 @@ class IconGenerator {
             })));
         });
     }
+    update(nameOrPath) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const icon = (_a = this.icons.get(nameOrPath)) !== null && _a !== void 0 ? _a : new svg_to_icon_1.Icon(nameOrPath, {
+                case: this.options.case,
+                sourceDirPath: this.sourceDirPath,
+            });
+            yield icon.read();
+            if (this.options.optimize) {
+                icon.optimize();
+            }
+            this.icons.set(icon.name, icon);
+        });
+    }
     delete(nameOrPath) {
         if (this.icons.has(nameOrPath)) {
             this.icons.delete(nameOrPath);
