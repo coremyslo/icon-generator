@@ -65,6 +65,18 @@ export class IconGenerator {
         }));
     }
 
+    public async update (nameOrPath: string): Promise<void> {
+        const icon = this.icons.get(nameOrPath) ?? new Icon(nameOrPath, {
+            case: this.options.case,
+            sourceDirPath: this.sourceDirPath,
+        });
+        await icon.read();
+        if (this.options.optimize) {
+            icon.optimize();
+        }
+        this.icons.set(icon.name, icon);
+    }
+
     public delete (nameOrPath: string): void {
         if (this.icons.has(nameOrPath)) {
             this.icons.delete(nameOrPath);

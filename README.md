@@ -39,7 +39,11 @@ console.log(iconGenerator.icons)
 ### `read(sourcePath = this.sourceDirPath): Promise<void>`
 Asynchronous. Reads and optimizes all SVG files in directory passed in the constructor or subdirectory of file passed as an argument.
 
+### `update(nameOrPath: string): Promise<void>`
+Asynchronous. Reads and optimizes icon.
+
 ### `delete(nameOrPath: string): void`
 Deletes icon from the internal `icons` Map by name or path.
+
 ### `icons: Map<string, Icon>`
 Returns a Map of icons, where the key is a name based on the icon path, and the value is [Icon](https://www.npmjs.com/package/@coremyslo/svg-to-icon) class.
